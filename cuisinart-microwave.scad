@@ -65,13 +65,16 @@ module fixer() {
                 cube([H3, 5, 35]);
                 #translate([H3/2, 7, 30]) rotate([90, 0, 0]) cylinder(d=5.5, h=10);
             }
-            // corner brace 1 (interferes with circuit board)
+            
+            // corner brace 1 (better geometry but interferes with circuit board)
             /*
             translate([12.5, W1r-W2, 14.5])
              rotate([-90, 0, 0])
               linear_extrude(W2)
                polygon([[0, 0], [0, -20], [-20, 0]]);
             */
+            
+            // corner brace 2
             translate([H1/2, W1r-W2, 0]) linear_extrude(h1) polygon([[0, 0], [15, 0], [0, -15]]);
         }
         
