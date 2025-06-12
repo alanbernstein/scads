@@ -119,6 +119,7 @@ cross-section profile extracted from https://makerworld.com/en/models/650493
 
 
 ### doubleshot cherry MX switch keycap
+(TODO)
 This is designed to work with any SVG image, and print the image in a second, clear material. Intended for a soundboard keyboard with sound icons (work in progress)
 
 ![print](images/keycaps/IMG_0140.25.jpg)
@@ -134,3 +135,10 @@ I designed this a long time ago as a modeling challenge, then printed it in high
 Printed on P1S in bambu PLA silk silver and OVV3D rainbow tricolor, 2025/03/18
 
 Printed on a formlabs printer in 2017, with clear resin
+
+## tent light mount
+I bought a tent with an integrated ceiling lamp. It only takes D-cell batteries, which I never use. I unscrewed the light assembly, so I could screw in a loop to hold a hanging usb-rechargable lamp.
+
+![print](images/tent-light/render.png)
+
+Printed on P1S in bambu PETG blue, 2025/01/10
