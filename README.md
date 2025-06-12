@@ -14,9 +14,13 @@ Printed on P1S in OVV3D tri-color PLA, 2025/06/11
 A socket wrench holder for a 9-piece set of 1/4" drive sockets ([e.g.](https://www.amazon.com/Belt-sock-set-drv-pieces/dp/B0757ZN7C6)), plus a hex drive adapter.
 
 ![print](images/bit-holders/IMG_1351.25.jpg)
+![print](images/bit-holders/render.png)
 
 Printed on P1S in bambu PLA silk silver, 2025/06/11
 
+I also set up a parameter grid for testing a range of dimensional values for a fit test:
+
+![print](images/bit-holders/parameter-grid.png)
 
 ### t-track gearwall components
 I built a custom heavy-duty garage pegboard system using t-tracks, normally used for things like router tables. 
