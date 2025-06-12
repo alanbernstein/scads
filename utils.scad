@@ -77,6 +77,80 @@ module trapezoid_3d(base_width, top_width, height, thickness) {
     trapezoid_arbitrary_3d(base_width, top_width, height, (base_width-top_width)/2, thickness);
 }
 
+module superellipse(rx, ry, n, steps = 100) {
+    points = [
+        for (i = [0 : steps - 1]) 
+        let (
+            theta = i * 360 / steps, 
+            x = pow(abs(cos(theta)), 2 / n) * rx * (sign(cos(theta))),
+            y = pow(abs(sin(theta)), 2 / n) * ry * (sign(sin(theta)))
+        ) [x, y]
+    ];
+    
+    polygon(points);
+}
+
+//superellipse(20, 20, 4, 200);  // n=4 gives a squircle shape
+
+
+module squircle_fg(size, steps = 100) {
+    r = size / 2;
+    points = [
+        for (i = [0 : steps - 1])
+        let (
+            theta = i * 360 / steps,
+            cos_t = cos(theta),
+            sin_t = sin(theta),
+            denom_x = r*r + pow(r * sin_t, 2),
+            denom_y = r*r + pow(r * cos_t, 2),
+            x = r * cos_t / sqrt(denom_x),
+            y = r * sin_t / sqrt(denom_y)
+        ) [x, y]
+    ];
+    
+    polygon(points);
+}
+
+// Example usage:
+//squircle_fg(40, 200);
+
+
+//x - size along the X-axis
+//y - size along the Y-axis
+//n - power of rounding by changing the parameter n. Then greater the n - then less the power of rounding
+//h - height of the object
+module squircleCube(x, y, n, h)
+{
+	points = [ for (i = [0 : $fn])
+		let(
+			t = i / $fn, //t from 0 to 1
+			xVal = xFromT(t, x),
+			isUp = t < 0.25 || t >= 0.75 ? true : false,
+			yVal = squircle(xVal, x, y, isUp))
+			//echo(t, xVal, yVal)
+			[xVal, yVal] ];
+	
+	translate([x / 2, y / 2, 0])
+	linear_extrude(height = h)
+	polygon(points);
+	
+	function squircle(x, xSize, ySize, isUp) = 
+	isUp ? squirclePart(x, xSize, ySize) : -squirclePart(x, xSize, ySize);
+
+	function squirclePart(x, xSize, ySize) =
+	(ySize / 2) * pow(1 - pow(abs(x) / (xSize / 2), n), 1 / n);
+	
+	function xFromT(t, xSize) =
+	t < 0.25 ? xSize * 2 * t :
+	(t >= 0.25 && t < 0.5 ? xSize * 2 * (0.5 - t) :
+	(t >= 0.5 && t < 0.75 ? -xSize * 2 * (t - 0.5) :
+	-xSize * 2 * (1 - t)));
+}
+
+//squircleCube(20, 20, 4, 2);
+
+
+
 module pill3(r=1, l=1) {
     union() {
         cylinder(r=r, h=l, $fn=64);
@@ -129,6 +203,18 @@ module torus(r1=20, r2=5, angle_start=0, angle_width=360) {
 }
 
 // torus(r1=20, r2=5, angle_start=10, angle_width=180);
+
+
+module rounded_cylinder(d, h, r=1) {
+    translate([0, 0, r]) cylinder(d=d, h=h-2*r);
+    cylinder(d=d-2*r, h=h);
+    translate([0, 0, r]) torus(r1=d/2-r, r2=r);
+    translate([0, 0, h-r]) torus(r1=d/2-r, r2=r);
+}
+
+//rounded_cylinder(10, 10, 1);
+
+
 
 // dim represents the dimensions of the flat part, not the exterior hull. probably useless
 module rounded_cube_dumb(dim=[3, 3, 3], r=1, $fn=64) {
@@ -270,6 +356,7 @@ module filleted_rounded_square_prism(dim=[50, 100, 15], r1=15, r2=2) {
 
 module connect_points_with_cone(p1, p2, r1, r2) {
     v = p2 - p1;
+    echo("p1 p2", p1, p2);
     h = norm(v); 
     dir = v / h; 
     
@@ -279,9 +366,10 @@ module connect_points_with_cone(p1, p2, r1, r2) {
     translate(p1) { 
         if (norm(axis) > 0) { 
             rotate(angle, axis) 
-                cylinder(h, r1, r2, $fn = 50); 
+                cylinder(h, r1, r2, $fn = 50);  
         } else { 
             // If already aligned with z-axis 
+            rotate(angle, [0, 0, 1]) 
             cylinder(h, r1, r2, $fn = 50);
         }
     }
@@ -369,3 +457,23 @@ LASER_KERF_ACRYLIC_60mil = .3;
 module laser_fiducial() {
     polygon([[0, 0], [0, 1], [1, 0]]);    
 }
+
+
+module smoothstep_prism(l1=20, l2=30, h1=10, h2=20, steps=50) {
+    // l1 = length of the transition
+    // h1 = height of the transition
+    // l2 = length of the whole block
+    // h2 = height of the whole blocl
+    x1 = (l2-l1)/2;
+    points = [
+        [0, 0],
+        [0, h2], 
+        for (i = [0:steps]) let (x = i / steps) [x1 + x * l1, h2 + (3*x*x - 2*x*x*x) * h1],
+        [l2, h2+h1],
+        [l2, 0],
+    ];
+    polygon(points);
+}
+
+// Example usage
+//smoothstep_prism(l1=20, l2=30, h1=20, steps=40);
