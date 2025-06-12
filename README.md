@@ -1,5 +1,27 @@
+Miscellaneous models for 3d printing, in [openscad](https://openscad.org/), often using [BOSL2](https://github.com/BelfrySCAD/BOSL2). A lot of these are custom-fit to specific objects.
 
-## projects
+I'd like to switch over to [pythonscad](https://pythonscad.org/), but it's not quite functional for me yet. When it is, I'm looking forward to doing some more interesting work using SDFs via [lib5](https://libfive.com/).
+
+## fun prints
+
+### vtech toy toolbox screwdriver
+[This](https://www.vtechkids.com/product/detail/17143) toy tolbox comes with screws, a wrench, and a pistol-grip driver, but no standard screwdriver. I designed the missing tool, which mates with both the "phillips" head, the hex head, and the wrench.
+
+![print](images/vtech-screwdriver/IMG_1358.25.jpg)
+
+Printed on P1s in bambu PLA silk silver, 2025/02/12
+
+### signet ring
+I designed this a long time ago as a modeling challenge, then printed it in high quality in resin with my company logo. Many years later my daughter discovered that 3d printing can be used for jewelry, so I updated it to work for all finger sizes, added some new image options, and made it work with multiple colors.
+
+![print](images/signet-ring/IMG_1393.25.jpg)
+
+Printed on P1S in bambu PLA silk silver and OVV3D rainbow tricolor, 2025/03/18
+
+Printed on a formlabs printer in 2017, with clear resin
+
+
+## functional prints
 
 ### carboard grommet for pinata hanging
 
@@ -94,14 +116,6 @@ Also, some caps for the tips, which fit into some holes in the holder.
 ![print](images/marshmallow-stick/IMG_1375.25.jpg)
 Printed on P1s in bambu PLA white, 2025/03/01
 
-
-### vtech toy toolbox screwdriver
-[This](https://www.vtechkids.com/product/detail/17143) toy tolbox comes with screws, a wrench, and a pistol-grip driver, but no standard screwdriver. I designed the missing tool, which mates with both the "phillips" head, the hex head, and the wrench.
-
-![print](images/vtech-screwdriver/IMG_1358.25.jpg)
-
-Printed on P1s in bambu PLA silk silver, 2025/02/12
-
 ### cuisinart microwave door mechanism fix
 CMW-200 microwave door mechanism hinge broke, not replaceable, glue seems unlikely to hold. The other original hinge might break, should be able to update this to fix that too.
 
@@ -127,14 +141,11 @@ This is designed to work with any SVG image, and print the image in a second, cl
 
 Printed on P1S in bambu PC black and clear, 2025/?
 
-### signet ring
-I designed this a long time ago as a modeling challenge, then printed it in high quality in resin. Many years later my daughter discovered that 3d printing can be used for jewelry, so I updated it to work for all finger sizes, and added some new image options.
+## remote control mounts
+(TODO)
+- zvox LED
+- lg tv
 
-![print](images/signet-ring/IMG_?)
-
-Printed on P1S in bambu PLA silk silver and OVV3D rainbow tricolor, 2025/03/18
-
-Printed on a formlabs printer in 2017, with clear resin
 
 ## tent light mount
 I bought a tent with an integrated ceiling lamp. It only takes D-cell batteries, which I never use. I unscrewed the light assembly, so I could screw in a loop to hold a hanging usb-rechargable lamp.
