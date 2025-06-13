@@ -14,7 +14,7 @@ Printed on P1s in bambu PLA silk silver, 2025/02/12
 ### signet ring
 I designed this a long time ago as a modeling challenge, then printed it in high quality in resin with my company logo. Many years later my daughter discovered that 3d printing can be used for jewelry, so I updated it to work for all finger sizes, added some new image options, and made it work with multiple colors.
 
-![print](images/signet-ring/IMG_1393.25.jpg)
+![print](images/signet-ring/IMG_1395.25.jpg)
 
 Printed on P1S in bambu PLA silk silver and OVV3D rainbow tricolor, 2025/03/18
 
