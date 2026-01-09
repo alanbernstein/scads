@@ -3,19 +3,6 @@ include <libs/BOSL2/rounding.scad>;
 $fn=32;
 inch = 25.4;
 
-// router dimensions that determine radius positioning are hard to measure.
-// effective radius measurements from the test print:
-// update: actually i figured out how to take multiple caliper measurements to
-// find a pretty precise value for y2, which enables a closed-form solution for
-// hole_pos as a function of cut diameter.
-// 
-// hole_pos  effective_radius (1/2" router bit)
-// 51  75.5
-// 56  78
-// 61  81.5
-// 66  85    (3 + 11/32)
-// 71  88.5  (3.5)
-
 // 6911 base measurements
 d1 = 8;   // insert hole diam
 d2 = 5.75*inch; // outermost diameter of base face
@@ -99,20 +86,4 @@ module hole_fit_test(L=30) {
         }
     }
 }
-
 // hole_fit_test();
-
-module router_jig_2d() {
-    d1 = 25;      // router spindle diameter
-    d2 = inch/2;  // router bit diameter
-    d3 = 12*inch; // cut circle diameter
-    d4 = 5;       // center hole diameter
-    // slipping over the spindle won't work well..
-    difference() {
-        right(d3/4+d2/4) rect([30+30+d3/2+d2/2, 30+30], rounding=30);
-        circle(d=d4);
-        right(d3/2+d2/2) circle(d=d1);
-    }
-    // right(d3/2+d2/2) circle(d=d2); // bit dize
-}
-// linear_extrude(5) router_jig_2d();
