@@ -25,6 +25,17 @@ Printed on a formlabs printer in 2017, with clear resin
 
 These are mostly simple devices. Because most of them need to mate with another object, the tolerance requirements can be tricky, so they can be deceptively time-consuming to design.
 
+### Circle Guide for Porter Cable Router
+
+Friction-fit insert into guide-mount holes on Porter Cable 6911 router base. Configurable to arbitrary bit diameter, and multiple cut diameters.
+
+![Circle guide for router](images/router-guide/router-guide-photo.jpg)
+
+Printed on P1S, in PLA gold, 2026-01-08
+
+[View source](porter-router-guide.scad)
+
+
 ### Carboard grommet for piñata hanging
 
 Toroidally rounded hole for stress relief for the rope, large cylindrical hole through the cardboard for higher strength.
