@@ -6,25 +6,47 @@ in2mm = 25.4;
 /////////////////////////
 // UHK model (bottom, 2D)
 
+// very approximate
+perimeter_l = [
+  [0, 0],
+  [135, 0],
+  [135, 114],
+  [108, 114],
+  [104, 132],
+  [0, 114],
+];
+
+perimeter_r = [
+  [0, 0],
+  [-154, 0],
+  [-154, 114],
+  [-154+33, 114],
+  [-154+33+4, 132],
+  [0, 114],
+];
+
 // screw holes
+// origin = bottom left corner of exterior
 l1 = [-(7.5 + 96), 7.4, 0]; // bottom-right (viewed from above)
 l2 = [-(7.5), 7.4 + 23.5, 0]; // bottom-left
 l3 = [-(7.5), 7.4 + 23.5 + 55, 0]; // top-left
 l4 = [-(7.5 + 94), 7.4 + 23.5 + 55 + 22.5, 0]; // top-right
+// origin = bottom right corner of exterior
 r1 = [(7.6), 7.4 + 23.5, 0]; //  # bottom-right (viewed from above)
 r2 = [(7.6 + 115), 7.4, 0]; // bottom-left
 r3 = [(7.6 + 103), 7.4 + 23.5 + 59 + 18.5, 0]; // top-left
 r4 = [(7.6), 7.4 + 23.5 + 59, 0]; // top-right
 
 // foot holes
-l5 = [0, 0, 0];
-l6 = [0, 0, 0];
-l7 = [0, 0, 0];
-l8 = [0, 0, 0];
-r5 = [0, 0, 0];
-r6 = [0, 0, 0];
-r7 = [0, 0, 0];
-r8 = [0, 0, 0];
+l5 = l1 + [-21, 2, 0];
+l6 = l2 + [-2, -21.5, 0];
+l7 = l3 + [-2, 18.5, 0];
+l8 = l4 + [-23, -4.5, 0];
+
+r5 = r1 + [2, -21.5, 0]; // TODO measure these
+r6 = r2 + [21, 2, 0];
+r7 = r3 + [21+12, -4.5, 0];
+r8 = r4 + [2, 18.5, 0];
 
 lc = [-(3 + 5 / 16) * in2mm, (2 + 1 / 4) * in2mm, 0];
 rc = [(3 + 3 / 8) * in2mm, (2 + 1 / 4) * in2mm, 0];
@@ -35,14 +57,14 @@ reset_diam = 3;
 
 module uhk_screw_holes_L() {
     translate(l1) circle(d=screw_hole_diam);
-    #translate(l2) circle(d=screw_hole_diam);
+    translate(l2) circle(d=screw_hole_diam);
     translate(l3) circle(d=screw_hole_diam);
     translate(l4) circle(d=screw_hole_diam);
 }
 
 module uhk_foot_holes_L() {
     translate(l5) circle(d=foot_hole_diam);
-    #translate(l6) circle(d=foot_hole_diam);
+    translate(l6) circle(d=foot_hole_diam);
     translate(l7) circle(d=foot_hole_diam);
     translate(l8) circle(d=foot_hole_diam);
 }
@@ -52,17 +74,17 @@ module uhk_center_hole_L(d=centroid_diam) {
 }
 
 module uhk_screw_holes_R() {
-    #translate(r1) circle(d=screw_hole_diam);
+    translate(r1) circle(d=screw_hole_diam);
     translate(r2) circle(d=screw_hole_diam);
     translate(r3) circle(d=screw_hole_diam);
     translate(r4) circle(d=screw_hole_diam);
 }
 
 module uhk_foot_holes_R() {
-    translate(r5) circle(d=foot_hole_diam);
+    #translate(r5) circle(d=foot_hole_diam);
     #translate(r6) circle(d=foot_hole_diam);
-    translate(r7) circle(d=foot_hole_diam);
-    translate(r8) circle(d=foot_hole_diam);
+    #translate(r7) circle(d=foot_hole_diam);
+    #translate(r8) circle(d=foot_hole_diam);
 }
 
 module uhk_center_hole_R(d=centroid_diam) {
@@ -72,6 +94,46 @@ module uhk_center_hole_R(d=centroid_diam) {
 module reset_hole() {
     translate(reset_pos) circle(d=reset_diam);  
 }
+
+module left_bottom() {
+  difference() {
+    linear_extrude(2)
+    difference() {
+      polygon(round_corners(perimeter_l, radius=2));
+      scale([-1, 1, 1]) uhk_screw_holes_L();
+      scale([-1, 1, 1]) uhk_foot_holes_L();
+      back(13) right(14) rect([108, 87], rounding=3, anchor=LEFT+FRONT);
+    }
+   up(1) linear_extrude(2) #right(30) back(105) 
+   zrot(5) text("LEFT (up)");
+  }
+}
+// left(135+5) left_bottom();
+
+module right_bottom() {
+  difference() {
+    linear_extrude(2)
+    difference() {
+      polygon(round_corners(perimeter_r, radius=2));
+      scale([-1, 1, 1]) uhk_screw_holes_R();
+      scale([-1, 1, 1]) uhk_foot_holes_R();
+      back(13) left(14) // TODO measure
+      rect([108+19, 87], rounding=3, anchor=RIGHT+FRONT);
+    }
+   up(1) linear_extrude(2) #left(30) back(108) 
+   zrot(-5) text("RIGHT (up)", anchor=RIGHT);
+  }
+}
+// right(154+5) right_bottom();
+
+module all_uhk_holes() {
+  #uhk_screw_holes_L();
+  #uhk_screw_holes_R();
+  uhk_foot_holes_L();
+  uhk_foot_holes_R();
+  reset_hole();
+}
+// all_uhk_holes();
 
 /////////////////////////////////////////////////////
 // base-mount models
@@ -230,8 +292,8 @@ module base_3R() {
 
 module base_5L() {
   pts = [
-    l1, l2, l3, l4,  // screw holes
-    l2+[0,0,-100], l3+[0, 0, -100], // bottom
+    l5, l6, l7, l8,  // screw holes
+    l6+[0,0,-100], l7+[0, 0, -100], // bottom
     // TODO generate 4-8 random points inside the hull
     // or less random: 1 near the center of each small face, 2 near the center of the large face
     // simplest thing that moves the supports out of the way of the screw holes
@@ -239,7 +301,8 @@ module base_5L() {
 
   ];
 
-  edges = [
+  // minimal
+  edges1 = [
     [0, 1], [1, 2], [2, 3], [3, 0], // connect screws via hull
     [0, 4], [3, 5], // side legs
     [1, 4], [2, 5], // hypot legs
@@ -247,8 +310,19 @@ module base_5L() {
     // TODO connect to more interior nodes
   ];
 
+  edges2 = [
+    [0, 1], [1, 2], [2, 3], [3, 0], // connect screws via hull
+    [0, 4], [3, 5], // side legs
+    [1, 4], [2, 5], // hypot legs
+    [4, 5], // connect feet
+    // TODO connect to more interior nodes
+  ];
+
+  edges = edges1;
+
   for(i=[0:len(pts)-1]) {
     translate(pts[i]) sphere(r=6);
+    %translate(pts[i]+[12, 12, 0]) text(str(i));
   }
 
   for(i=[0:len(edges)-1]) {
