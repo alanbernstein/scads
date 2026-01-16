@@ -176,3 +176,15 @@ I bought a tent with an integrated ceiling lamp. It only takes D-cell batteries,
 ![print](images/tent-light/render.png)
 
 Printed on P1S in bambu PETG blue, 2025/01/10
+
+
+# montage
+
+![Montage](images/montage.jpg)
+
+1. **Nintendo Switch visor mount** – https://github.com/alanbernstein/scads/blob/master/nintendo-switch-clamp.scad
+2. **Hygrometer stand** – https://github.com/alanbernstein/scads/blob/master/https://github.com/alanbernstein/scads/blob/master/hygrometer-stand.scad
+3. **Microwave part repair** – https://github.com/alanbernstein/scads/blob/master/https://github.com/alanbernstein/scads/blob/master/cuisinart-microwave.scad
+4. **Bandaid Caddy** – https://github.com/alanbernstein/scads/blob/master/https://github.com/alanbernstein/scads/blob/master/bandaid-dispenser.scad
+5. **Porter Cable circle cutting guide** – https://github.com/alanbernstein/scads/blob/master/https://github.com/alanbernstein/scads/blob/master/porter-router-guide.scad
+6. **Handle for pocket door lock knob** – https://github.com/alanbernstein/scads/blob/master/https://github.com/alanbernstein/scads/blob/master/pocket-door-lock-tool.scad
