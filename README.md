@@ -2,6 +2,50 @@ Miscellaneous models for 3d printing, in [openscad](https://openscad.org/), ofte
 
 I'd like to switch over to [pythonscad](https://pythonscad.org/), but it's not quite functional for me yet. When it is, I'm looking forward to doing some more interesting work using SDFs via [lib5](https://libfive.com/).
 
+# Montage
+
+![Montage](images/montage.jpg)
+
+1. [Selfie-tripod table lantern](https://github.com/alanbernstein/scads/blob/master/black-magnet-lantern.scad)
+2. [Shell for UHK custom switch module](https://github.com/alanbernstein/scads/blob/master/uhk-switcher-module-shell.scad)
+3. Nintendo Switch Pro Controller Compact Shell
+4. [iClever keyboard tenting clip](https://github.com/alanbernstein/scads/blob/master/iclever-tent-clip.scad)
+5. [Peak Design reading stand](https://github.com/alanbernstein/scads/blob/master/peak-design-kickstand.scad)
+6. [Nintendo Switch Cartridge Case](https://github.com/alanbernstein/scads/blob/master/switch-cart-case.scad)
+7. [Cupcake Game Tray](https://github.com/alanbernstein/scads/blob/master/cupcake-organizer.scad)
+8. [Peak Design boom arm mount knob](https://github.com/alanbernstein/scads/blob/master/peak-design-bed-mount.scad)
+9. [Peak Design cabinet-pull mount](https://github.com/alanbernstein/scads/blob/master/peak-design-dashboard-mount.scad)
+10. [Camp Stove Leveling Feet](https://github.com/alanbernstein/scads/blob/master/coleman-feet.scad)
+11. [Cap for Olfa compass-cutter](https://github.com/alanbernstein/scads/blob/master/olfa-circle-cutter-cap.scad)
+12. [EZ Valo Nightlight hanger clip](https://github.com/alanbernstein/scads/blob/master/ez-valo-motion-light-clip.scad)
+13. [Cargo Bike Handrail Mount](https://github.com/alanbernstein/scads/blob/master/aventon-abound-accessories.scad)
+14. [Charger Brick Wall Mount](https://github.com/alanbernstein/scads/blob/master/aventon-charger.scad)
+15. [Porter Cable circle cutting guide](https://github.com/alanbernstein/scads/blob/master/porter-router-guide.scad)
+16. [Festival Wristband Dual-Adjust Insert](https://github.com/alanbernstein/scads/blob/master/acl-festival-wristband-clasp.scad)
+17. [Locket](https://github.com/alanbernstein/scads/blob/master/locket.scad)
+18. [Spirograph Organizer](https://github.com/alanbernstein/scads/blob/master/spirograph-case.scad)
+19. [Fidlock Twist Cover](https://github.com/alanbernstein/scads/blob/master/fidlock.scad)
+20. [1/4" Bit Holder](https://github.com/alanbernstein/scads/blob/master/bit-holder.scad)
+21. [Cardboard Grommet for Piñata](https://github.com/alanbernstein/scads/blob/master/cardboard-tools.scad)
+22. [T-Track Gearwall Components](https://github.com/alanbernstein/scads/blob/master/t-track-accessories.scad)
+23. [Compact Stadiometer Device](https://github.com/alanbernstein/scads/blob/master/stadiometer.scad)
+24. [Magnetic Phone Mount Armband Adapter](https://github.com/alanbernstein/scads/blob/master/peak-design-arm-band.scad)
+25. [Pocket Door Lock Tool](https://github.com/alanbernstein/scads/blob/master/pocket-door-lock-tool.scad)
+26. [Bandaid Caddy](https://github.com/alanbernstein/scads/blob/master/bandaid-dispenser.scad)
+27. [Cord Wrap](https://github.com/alanbernstein/scads/blob/master/cordwrap.scad)
+28. [Signet Ring](https://github.com/alanbernstein/scads/blob/master/signet-ring-2.scad)
+29. [Marshmallow Stick Holder](https://github.com/alanbernstein/scads/blob/master/marshmallow-stick-holder.scad)
+30. [Nintendo Switch Car Visor Mount](https://github.com/alanbernstein/scads/blob/master/nintendo-switch-joycon-insert.scad)
+31. [Vtech Toy Toolbox Screwdriver](https://github.com/alanbernstein/scads/blob/master/vtech-screwdriver.scad)
+32. [Doubleshot Cherry MX Keycap](https://github.com/alanbernstein/scads/blob/master/keycap-clean.scad)
+33. [Cuisinart Microwave Door Hinge Fix](https://github.com/alanbernstein/scads/blob/master/cuisinart-microwave.scad)
+34. [Hygrometer Stand](https://github.com/alanbernstein/scads/blob/master/hygrometer-stand.scad)
+35. [Tent Light Mount](https://github.com/alanbernstein/scads/blob/master/tent-light.scad)
+36. [EZ Valo Nightlight table stand](https://github.com/alanbernstein/scads/blob/master/ez-valo-motion-light-clip.scad)
+37. [Rockler Vacuum Hose Connectors](https://github.com/alanbernstein/scads/blob/master/stanley-vacuum-rockler-adapter.scad)
+38. [Projector Mirror Mount](https://github.com/alanbernstein/scads/blob/master/projector_mirror_mount.scad)
+
+
 ## Fun prints
 
 ### Vtech toy toolbox screwdriver
@@ -75,7 +119,7 @@ I have a [wall ruler](https://www.amazon.com/Kate-Laurel-Growth-Chart-Rustic/dp/
 Printed on P1S in bambu PLA silk silver, 2025/05/07
 
 
-## Adapter for magnetic phone mount armband
+## Peak Design: Armband Adapter
 
 This hand-me-down [phone armband](https://www.amazon.com/VUP-Running-Armband-Rotatable-Walking/dp/B072C3SCW6) is frustrating because you can't remove/attach the phone with one hand. A proper design would include a magnetic/mechanical quick-release mechanism, e.g. the peak design SlimLink mechanism. If you disassemble the [out front bike mount](https://www.peakdesign.com/products/out-front-bike-mount), it fits almost perfectly with the armband. It just needs one little adapter to stay in place.
 
@@ -176,15 +220,3 @@ I bought a tent with an integrated ceiling lamp. It only takes D-cell batteries,
 ![print](images/tent-light/render.png)
 
 Printed on P1S in bambu PETG blue, 2025/01/10
-
-
-# montage
-
-![Montage](images/montage.jpg)
-
-1. **Nintendo Switch visor mount** – https://github.com/alanbernstein/scads/blob/master/nintendo-switch-clamp.scad
-2. **Hygrometer stand** – https://github.com/alanbernstein/scads/blob/master/https://github.com/alanbernstein/scads/blob/master/hygrometer-stand.scad
-3. **Microwave part repair** – https://github.com/alanbernstein/scads/blob/master/https://github.com/alanbernstein/scads/blob/master/cuisinart-microwave.scad
-4. **Bandaid Caddy** – https://github.com/alanbernstein/scads/blob/master/https://github.com/alanbernstein/scads/blob/master/bandaid-dispenser.scad
-5. **Porter Cable circle cutting guide** – https://github.com/alanbernstein/scads/blob/master/https://github.com/alanbernstein/scads/blob/master/porter-router-guide.scad
-6. **Handle for pocket door lock knob** – https://github.com/alanbernstein/scads/blob/master/https://github.com/alanbernstein/scads/blob/master/pocket-door-lock-tool.scad
